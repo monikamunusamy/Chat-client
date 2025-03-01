@@ -1,0 +1,56 @@
+{
+    "modelTopology": {
+      "keras_version": "2.3.0",
+      "backend": "tensorflow",
+      "model": {
+        "class_name": "Sequential",
+        "config": [
+          {
+            "class_name": "Dense",
+            "config": {
+              "units": 32,
+              "activation": "relu",
+              "use_bias": true,
+              "name": "dense_1",
+              "batch_input_shape": [null, 10]
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "units": 1,
+              "activation": "sigmoid",
+              "name": "dense_2"
+            }
+          }
+        ]
+      }
+    },
+    "weightsManifest": [
+      {
+        "paths": ["model_weights.bin"],
+        "weights": [
+          {
+            "name": "dense_1/kernel",
+            "dtype": "float32",
+            "shape": [10, 32]
+          },
+          {
+            "name": "dense_1/bias",
+            "dtype": "float32",
+            "shape": [32]
+          },
+          {
+            "name": "dense_2/kernel",
+            "dtype": "float32",
+            "shape": [32, 1]
+          },
+          {
+            "name": "dense_2/bias",
+            "dtype": "float32",
+            "shape": [1]
+          }
+        ]
+      }
+    ]
+  }
