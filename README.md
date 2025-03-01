@@ -32,8 +32,40 @@ Make sure you have `Node.js` and `npm` installed on your machine. You can downlo
 ´´´npm start´´´
 The app will run on http://localhost:3000.
 
-Setting Up the Backend
+###Setting Up the Backend
 If you want to run the Flask backend:
 
-Navigate to the chat-backend directory:
+1. Navigate to the chat-backend directory:
+   ´´´cd chat-backend´´´
+
+2.Create a virtual environment:
+
+´´´python3 -m venv venv
+source venv/bin/activate  # macOS/Linux
+# OR 
+venv\Scripts\activate  # Windows´´´
+
+3.Install flask
+
+´´´pip install Flask´´´
+
+4. pip install Flask
+
+´´´python app.py´´´
+
+The server will run on http://127.0.0.1:5000.
+
+Usage
+
+Creating a Channel: Enter a name in the "Create new channel" input and click the "Create" button.
+Sending Messages: Select a channel and type your message in the input box below. Click "Send" to submit.
+TensorFlow.js Model
+
+This application includes a TensorFlow.js model located in the models directory. Ensure that the model files are properly hosted in the GitHub repository for the app to load them correctly.
+
+
+
+
+
+
 
