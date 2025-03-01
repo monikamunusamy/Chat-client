@@ -1,28 +1,35 @@
+// src/App.js
+
 import React, { useState, useEffect } from 'react';
-import ChannelList from './ChannelList';
-import Chat from './Chat';
-import UserPrompt from './UserPrompt';
-import SearchBar from './SearchBar';
+import ChannelList from './components/ChannelList';
+import Chat from './components/Chat';
+import UserPrompt from './components/UserPrompt';
 
 function App() {
     const [username, setUsername] = useState('');
     const [channels, setChannels] = useState([]);
     const [currentChannel, setCurrentChannel] = useState(null);
-    const [filteredChannels, setFilteredChannels] = useState([]);
+
+    const mockChannels = [
+        { id: 1, name: 'General Chat', unreadCount: 3 },
+        { id: 2, name: 'Tech Support', unreadCount: 5 },
+        { id: 3, name: 'Announcements', unreadCount: 0 },
+        { id: 4, name: 'Feedback', unreadCount: 1 },
+        { id: 5, name: 'Random Stuff', unreadCount: 3 },
+    ];
 
     useEffect(() => {
-        // Fetch channels from API (replace with your own API)
-        fetch('https://api.yourchatserver.com/channels')
-            .then(response => response.json())
-            .then(data => {
-                setChannels(data);
-                setFilteredChannels(data);
-            });
+        // Replace this with your actual API call when ready
+        setChannels(mockChannels); // In production, use fetch to get channels
     }, []);
 
-    const handleSearch = (query) => {
-        const results = channels.filter(channel => channel.name.toLowerCase().includes(query.toLowerCase()));
-        setFilteredChannels(results);
+    const handleSelectChannel = (channel) => {
+        setCurrentChannel(channel);
+    };
+
+    const handleCreateChannel = (channelName) => {
+        const newChannel = { id: Date.now(), name: channelName, unreadCount: 0 };
+        setChannels((prevChannels) => [...prevChannels, newChannel]);
     };
 
     return (
@@ -31,10 +38,10 @@ function App() {
                 <UserPrompt onSetUsername={setUsername} />
             ) : (
                 <div>
-                    <SearchBar onSearch={handleSearch} />
                     <ChannelList
-                        channels={filteredChannels}
-                        onSelectChannel={setCurrentChannel}
+                        channels={channels}
+                        onSelectChannel={handleSelectChannel}
+                        onCreateChannel={handleCreateChannel}
                     />
                     <Chat channel={currentChannel} username={username} />
                 </div>
