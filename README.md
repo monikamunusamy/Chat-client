@@ -1,72 +1,26 @@
-# Chat Client Application
+# Chat Application
 
-A simple chat client that allows users to join channels, send messages, and interact with a TensorFlow.js model for various functionalities.
+Welcome to **Chat Application**! A simple messaging platform where users can join various channels and communicate seamlessly. Create channels, send messages, and enjoy chatting with friends!
 
-## Features
+You can [check out the live app here!](https://your-live-app-url.com)
 
-- **Channel Management**: Create and select channels for different topics of discussion.
-- **Message Handling**: Send messages in selected channels, with unread message tracking.
-- **TensorFlow.js Integration**: Load a pre-trained model to analyze or generate responses based on user input.
-- **Responsive Design**: User-friendly interface with a modern layout.
+![Webpage Screenshot](https://github.com/monikamunusamy/Chat-client/blob/main/images/Homepage.jpg)  <!-- Update the image URL if needed -->
+
+## Key Features
+
+- **Channel Management**: Easily create and select different channels for various conversations.
+- **Real-time Messaging**: Send and receive messages instantly within selected channels.
+- **User-Friendly Interface**: A clean and modern design for smooth navigation.
+- **Powered by TensorFlow.js**: Integrate machine learning capabilities for enhanced interactions.
 
 ## Getting Started
 
-### Prerequisites
+Follow these steps to get your **Chat Application** up and running.
 
-Make sure you have `Node.js` and `npm` installed on your machine. You can download and install them from [Node.js Official Site](https://nodejs.org/).
+### 1. Clone the Repository
 
-### Installation
+You can clone the repository to your local machine using the following command:
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/monikamunusamy/Chat-client.git
-   cd Chat-client```
-
-2. Install the dependencies:
-  
- ´´´bash 
- npm install´´´
-
-3.Start the development server:
-
-´´´npm start´´´
-The app will run on http://localhost:3000.
-
-###Setting Up the Backend
-If you want to run the Flask backend:
-
-1. Navigate to the chat-backend directory:
-   ´´´cd chat-backend´´´
-
-2.Create a virtual environment:
-
-´´´python3 -m venv venv
-source venv/bin/activate  # macOS/Linux
-# OR 
-venv\Scripts\activate  # Windows´´´
-
-3.Install flask
-
-´´´pip install Flask´´´
-
-4. pip install Flask
-
-´´´python app.py´´´
-
-The server will run on http://127.0.0.1:5000.
-
-Usage
-
-Creating a Channel: Enter a name in the "Create new channel" input and click the "Create" button.
-Sending Messages: Select a channel and type your message in the input box below. Click "Send" to submit.
-TensorFlow.js Model
-
-This application includes a TensorFlow.js model located in the models directory. Ensure that the model files are properly hosted in the GitHub repository for the app to load them correctly.
-
-
-
-
-
-
-
+```bash
+git clone https://github.com/monikamunusamy/Chat-client.git
+cd Chat-client
