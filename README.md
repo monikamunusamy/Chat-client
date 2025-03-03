@@ -2,9 +2,9 @@
 
 Welcome to **Chat Application**! A simple messaging platform where users can join various channels and communicate seamlessly. Create channels, send messages, and enjoy chatting with friends!
 
-You can [check out the live app here!](https://your-live-app-url.com)
+You can [check out the live app here!](http://localhost:3001/Chat-client)
 
-![Webpage Screenshot](https://github.com/monikamunusamy/Chat-client/blob/main/images/Homepage.jpg)  <!-- Update the image URL if needed -->
+
 
 ## Key Features
 
@@ -29,14 +29,14 @@ cd Chat-client
 2. Install the Dependencies
 Ensure you have Node.js installed. Then, install the required packages:
 
-bash
-Copy code
+‘‘‘bash
 npm install
+
+
 3. Run the Application
 To start the application, run the following command:
 
-bash
-Copy code
+‘‘‘bash
 npm start
 This will start the development server at http://localhost:3000.
 
@@ -54,32 +54,13 @@ Chat-client/
 │   └── weights.bin              # Model weights file
 ├── public/                      # Static files for React app
 │   ├── index.html               # Main HTML document
-│   └── ...                      # Other static assets
 ├── src/                         # React source code
 │   ├── components/              # React components
 │   ├── App.js                   # Main application component
-│   └── ...                      # Other components
 ├── package.json                  # Node.js project metadata and dependencies
 ├── README.md                    # Project documentation
 Acknowledgement
 TensorFlow.js for the machine learning capabilities.
 React for building the user interface.
 Flask for the backend services.
-markdown
-Copy code
 
-### Customization Steps
-
-1. **Update Live App URL**: Change the live app link to your actual deployed application.
-2. **Screenshots and Images**: Ensure that the screenshot URL corresponds to a valid image in your GitHub repository.
-3. **Dependencies and Configuration**: Adjust any dependencies or configurations based on your specific project setup.
-
-### Final Steps
-
-- Save the `README.md` file in your project root directory.
-- To commit the changes, run:
-
-```bash
-git add README.md
-git commit -m "Add README file for Chat Application"
-git push origin master  # or the appropriate branch
