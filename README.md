@@ -2,7 +2,7 @@
 
 Welcome to **Chat Application**! A simple messaging platform where users can join various channels and communicate seamlessly. Create channels, send messages, and enjoy chatting with friends!
 
-You can [check out the live app here!](http://localhost:3001/Chat-client)
+You can [check out the live app here!](http://localhost:3000/Chat-client)
 
 
 
