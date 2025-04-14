@@ -25,3 +25,95 @@ li:hover {
 button {
   margin-top: 10px;
 }
+/* src/App.css */
+
+body {
+  background-color: #f0f8ff; /* Light pastel blue */
+  font-family: 'Arial', sans-serif; /* Font style */
+  margin: 0;}
+
+  .header {
+    background-color: #90caf9; /* Light pastel blue for header */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #64b5f6; /* Slightly darker border */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.chat-container {
+  display: flex;
+  height: 100vh; /* Full height */
+  background-color: #e3f2fd; /* Light pastel blue */
+  padding: 20px;
+}
+
+.channel-list {
+  width: 250px;
+  border-right: 1px solid #ccc;
+  background-color: #ffffff; /* White background for channel list */
+  padding: 15px;
+  border-radius: 5px; /* Add a slight rounded corner */
+}
+
+.channel-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.channel-list li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.channel-list li:hover {
+  background-color: #cce7ff; /* Light pastel blue on hover */
+}
+
+.message-input {
+  display: flex;
+  padding: 10px;
+  background-color: #ffffff; /* White background for input area */
+  border-top: 1px solid #ccc;
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px; /* Space between input and button */
+
+}
+
+.message-input button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: #90caf9; /* Light pastel blue for button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.message-input button:hover {
+  background-color: #64b5f6; /* Darker shade on hover */
+}
+
+.message-bubble {
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px 0;
+  max-width: 70%; /* Apply bubble size */
+}
+
+.message-bubble.self {
+  background-color: #64b5f6; /* Self-sent messages in pastel blue */
+  color: white;
+}
+
+.message-bubble.other {
+  background-color: #f1f1f1; /* Other messages in light gray */
+  color: black;
+}

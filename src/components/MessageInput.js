@@ -2,17 +2,14 @@
 
 import React, { useState } from 'react';
 
-function MessageInput({ channelId, username }) {
+function MessageInput({ onSendMessage }) {
     const [message, setMessage] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (message) {
-            // Here you would send the message to the API or state
-            console.log(`Sending message to channel ${channelId}: ${message}`);
-
-            // Clear the input after sending
-            setMessage('');
+        if (message.trim()) {
+            onSendMessage(message); // This will call the send message logic
+            setMessage(''); // Clear the input field after sending
         }
     };
 

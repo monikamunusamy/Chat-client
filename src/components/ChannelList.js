@@ -1,6 +1,7 @@
 // src/components/ChannelList.js
 
 import React, { useState } from 'react';
+import '../App.css'; // Import the CSS file
 
 const ChannelList = ({ channels, onSelectChannel, onCreateChannel }) => {
     const [newChannelName, setNewChannelName] = useState('');
@@ -13,7 +14,7 @@ const ChannelList = ({ channels, onSelectChannel, onCreateChannel }) => {
     };
 
     return (
-        <div>
+        <div className="channel-list">
             <h2>Channels</h2>
             <ul>
                 {channels.map((channel) => (
@@ -31,6 +32,6 @@ const ChannelList = ({ channels, onSelectChannel, onCreateChannel }) => {
             <button onClick={handleCreateChannel}>Create</button>
         </div>
     );
-};
+}
 
 export default ChannelList;

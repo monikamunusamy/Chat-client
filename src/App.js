@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import ChannelList from './components/ChannelList';
 import Chat from './components/Chat';
 import UserPrompt from './components/UserPrompt';
+import './App.csmpm s';
 
 function App() {
     const [username, setUsername] = useState('');
@@ -19,17 +20,42 @@ function App() {
     ];
 
     useEffect(() => {
-        // Replace this with your actual API call when ready
-        setChannels(mockChannels); // In production, use fetch to get channels
+        // Set channels with mock data
+        setChannels(mockChannels);
     }, []);
 
     const handleSelectChannel = (channel) => {
         setCurrentChannel(channel);
+
+        // Reset unread count when a channel is selected
+        setChannels((prev) => 
+            prev.map((c) => 
+                c.id === channel.id ? { ...c, unreadCount: 0 } : c
+            )
+        );
     };
 
     const handleCreateChannel = (channelName) => {
         const newChannel = { id: Date.now(), name: channelName, unreadCount: 0 };
-        setChannels((prevChannels) => [...prevChannels, newChannel]);
+        setChannels((prev) => [...prev, newChannel]);
+    };
+
+    const handleSendMessage = (messageText) => {
+        if (messageText.trim()) {
+            // Logic for sending the message (e.g., update messages)
+            console.log(`Sending message in channel ${currentChannel.id}: ${messageText}`);
+
+            // Update unread count for the current channel
+            setChannels((prevChannels) =>
+                prevChannels.map((channel) =>
+                    channel.id === currentChannel.id
+                        ? { ...channel, unreadCount: channel.unreadCount + 1 } // Increment unread count
+                        : channel
+                )
+            );
+
+            // Optionally reset message input field here as needed
+        }
     };
 
     return (
@@ -37,13 +63,17 @@ function App() {
             {!username ? (
                 <UserPrompt onSetUsername={setUsername} />
             ) : (
-                <div>
+                <div className="chat-container">
                     <ChannelList
                         channels={channels}
                         onSelectChannel={handleSelectChannel}
                         onCreateChannel={handleCreateChannel}
                     />
-                    <Chat channel={currentChannel} username={username} />
+                    <Chat 
+                        channel={currentChannel} 
+                        username={username}
+                        onSendMessage={handleSendMessage} // Pass the function down
+                    />
                 </div>
             )}
         </div>

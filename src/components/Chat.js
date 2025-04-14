@@ -2,45 +2,50 @@
 
 import React, { useState, useEffect } from 'react';
 import MessageInput from './MessageInput';
-import * as tf from '@tensorflow/tfjs'; // Import TensorFlow.js
+import * as tf from '@tensorflow/tfjs';
+import '../App.css'; // Import the CSS file
 
 function Chat({ channel, username }) {
     const [messages, setMessages] = useState([]);
     const [model, setModel] = useState(null);
 
     const loadModel = async () => {
-        const model = await tf.loadLayersModel('https://monikamunusamy.github.io/Chat-client/models/model.json');        setModel(model);
+        try {
+            const model = await tf.loadLayersModel('htt
+                ps://monikamunusamy.github.io/Chat-client.json');
+            setModel(model);
+        } catch (error) {
+            console.error('Error loading model:', error);
+        }
     };
 
     useEffect(() => {
         loadModel();
-    }, []);
-
-    useEffect(() => {
         if (channel) {
-            fetch(`https://api.yourchatserver.com/channels/${channel.id}/messages`)
+            fetch(`http://127.0.0.1:5000/channels/${channel.id}/messages`)
                 .then(response => response.json())
                 .then(data => setMessages(data))
                 .catch(error => console.error('Error fetching messages:', error));
         }
     }, [channel]);
 
-    const handleSendMessage = async (messageText) => {
-        if (model) {
-            const inputTensor = tf.tensor([messageText]);
-            const prediction = model.predict(inputTensor);
-            prediction.print(); // Handle predictions as needed
+    const handleSendMessage = (messageText) => {
+        if (messageText.trim()) {
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { text: messageText, sender: username }
+            ]);
         }
-        // Add message logic here
-        setMessages((prevMessages) => [...prevMessages, { text: messageText, user: username }]);
     };
 
     return (
         <div>
             <h3>{channel?.name}</h3>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', padding: '10px' }}>
                 {messages.map((msg, index) => (
-                    <div key={index}>{msg.text}</div>
+                    <div key={index} className={`message-bubble ${msg.sender === username ? 'self' : 'other'}`}>
+                        {msg.text}
+                    </div>
                 ))}
             </div>
             <MessageInput onSendMessage={handleSendMessage} />
