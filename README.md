@@ -26,7 +26,7 @@ git clone https://github.com/monikamunusamy/Chat-client.git
 cd Chat-client
 
 
-### 2. Install the Dependencies
+## 2. Install the Dependencies
 Ensure you have Node.js installed. Then, install the required packages:
 
 ‘‘‘bash
