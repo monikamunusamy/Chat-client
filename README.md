@@ -24,11 +24,52 @@ Follow these steps to get your **Chat Application** up and running.
 ```bash
 git clone https://github.com/monikamunusamy/Chat-client.git
 cd Chat-client
+```
 
 ### 2. Install the Dependencies
+
 Ensure you have Node.js installed. Then, install the required packages:
 
-bash
-Copy
-Edit
+```bash
 npm install
+```
+
+### 3. Run the Application
+
+To start the application, run the following command:
+
+```bash
+npm start
+```
+
+This will start the development server at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Project Structure
+
+```text
+Chat-client/
+├── build/                       # Contains the production build files
+├── chat-backend/               # Directory for the Flask backend
+│   ├── app.py                  # Flask application file
+│   └── requirements.txt        # Python dependencies
+├── models/                     # TensorFlow.js model files
+│   ├── model.json              # Model architecture and configuration
+│   └── weights.bin             # Model weights
+├── public/                     # Static files for React app
+│   └── index.html              # Main HTML document
+├── src/                        # React source code
+│   ├── components/             # React components
+│   └── App.js                  # Main application component
+├── package.json                # Node.js project metadata and dependencies
+└── README.md                   # Project documentation
+```
+
+---
+
+## Acknowledgements
+
+- **TensorFlow.js** – For the machine learning capabilities  
+- **React** – For building the frontend user interface  
+- **Flask** – For the backend API services
