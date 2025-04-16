@@ -2,7 +2,7 @@
 
 Welcome to **Chat Application**! A simple messaging platform where users can join various channels and communicate seamlessly. Create channels, send messages, and enjoy chatting with friends! ✨
 
-🔗 You can [check out the live app here!](http://localhost:3000/Chat-client)
+🔗 You can [check out the live app here!](https://chat-client-kvrn.onrender.com/)
 
 ---
 
@@ -40,7 +40,7 @@ npm install
 npm start
 ```
 
-📍 This will start the development server at [http://localhost:3000](http://localhost:3000)
+📍 This will start the development server at [[http://localhost:3000](http://localhost:3000)](https://chat-client-kvrn.onrender.com/)
 
 ---
 
