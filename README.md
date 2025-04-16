@@ -26,14 +26,14 @@ git clone https://github.com/monikamunusamy/Chat-client.git
 cd Chat-client
 
 
-2. Install the Dependencies
+### 2. Install the Dependencies
 Ensure you have Node.js installed. Then, install the required packages:
 
 ‘‘‘bash
 npm install
 
 
-3. Run the Application
+### 3. Run the Application
 To start the application, run the following command:
 
 ‘‘‘bash
@@ -59,8 +59,8 @@ Chat-client/
 │   ├── App.js                   # Main application component
 ├── package.json                  # Node.js project metadata and dependencies
 ├── README.md                    # Project documentation
-Acknowledgement
+
+### Acknowledgement
 TensorFlow.js for the machine learning capabilities.
 React for building the user interface.
 Flask for the backend services.
-
