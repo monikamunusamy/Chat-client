@@ -40,7 +40,7 @@ npm install
 npm start
 ```
 
-📍 This will start the development server at [[http://localhost:3000](http://localhost:3000)](https://chat-client-kvrn.onrender.com/)
+📍 This will start the development server at [chat-client!](https://chat-client-kvrn.onrender.com/)
 
 ---
 
