@@ -1,15 +1,16 @@
 // src/App.js
 
 import React, { useState, useEffect } from 'react';
+import * as tf from '@tensorflow/tfjs'; // ✅ Import TensorFlow.js
 import ChannelList from './components/ChannelList';
 import Chat from './components/Chat';
 import UserPrompt from './components/UserPrompt';
-import './App.csmpm s';
 
 function App() {
     const [username, setUsername] = useState('');
     const [channels, setChannels] = useState([]);
     const [currentChannel, setCurrentChannel] = useState(null);
+    const [model, setModel] = useState(null); // ✅ State for TensorFlow model
 
     const mockChannels = [
         { id: 1, name: 'General Chat', unreadCount: 3 },
@@ -20,16 +21,21 @@ function App() {
     ];
 
     useEffect(() => {
-        // Set channels with mock data
-        setChannels(mockChannels);
+        const loadModel = async () => {
+            try {
+                const model = await tf.loadLayersModel('https://monikamunusamy.github.io/Chat-client.json');
+                setModel(model);
+            } catch (error) {
+                console.error('Error loading model:', error);
+            }
+        };
+        loadModel();
     }, []);
 
     const handleSelectChannel = (channel) => {
         setCurrentChannel(channel);
-
-        // Reset unread count when a channel is selected
-        setChannels((prev) => 
-            prev.map((c) => 
+        setChannels((prev) =>
+            prev.map((c) =>
                 c.id === channel.id ? { ...c, unreadCount: 0 } : c
             )
         );
@@ -42,19 +48,14 @@ function App() {
 
     const handleSendMessage = (messageText) => {
         if (messageText.trim()) {
-            // Logic for sending the message (e.g., update messages)
             console.log(`Sending message in channel ${currentChannel.id}: ${messageText}`);
-
-            // Update unread count for the current channel
             setChannels((prevChannels) =>
                 prevChannels.map((channel) =>
                     channel.id === currentChannel.id
-                        ? { ...channel, unreadCount: channel.unreadCount + 1 } // Increment unread count
+                        ? { ...channel, unreadCount: channel.unreadCount + 1 }
                         : channel
                 )
             );
-
-            // Optionally reset message input field here as needed
         }
     };
 
@@ -69,10 +70,10 @@ function App() {
                         onSelectChannel={handleSelectChannel}
                         onCreateChannel={handleCreateChannel}
                     />
-                    <Chat 
-                        channel={currentChannel} 
+                    <Chat
+                        channel={currentChannel}
                         username={username}
-                        onSendMessage={handleSendMessage} // Pass the function down
+                        onSendMessage={handleSendMessage}
                     />
                 </div>
             )}

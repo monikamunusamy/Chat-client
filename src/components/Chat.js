@@ -11,8 +11,7 @@ function Chat({ channel, username }) {
 
     const loadModel = async () => {
         try {
-            const model = await tf.loadLayersModel('htt
-                ps://monikamunusamy.github.io/Chat-client.json');
+            const model = await tf.loadLayersModel('https://monikamunusamy.github.io/Chat-client.json');   
             setModel(model);
         } catch (error) {
             console.error('Error loading model:', error);

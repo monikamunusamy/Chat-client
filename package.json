@@ -2,7 +2,6 @@
   "name": "chat-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://monikamusamy.github.io/Chat-client",
   "dependencies": {
     "@tensorflow/tfjs": "^4.22.0",
     "@testing-library/jest-dom": "^6.6.3",
